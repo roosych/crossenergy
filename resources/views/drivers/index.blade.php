@@ -130,7 +130,7 @@
                                 @endcan
                                 <a href="{{route('driver.images', $driver)}}" class="btn btn-theme fw-semibold"><i class="bi bi-image"></i></a>
                                 @can('delete', \App\Models\Driver::class)
-                                    <a href="javascript:void(0);" class="btn btn-theme fw-semibold delete-item" data-name="{{$driver->fullname}}" data-id="{{$driver->id}}" data-href="{{route('drivers.index', $driver->id)}}"><i class="bi bi-trash3"></i></a>
+                                    <a href="javascript:void(0);" class="btn btn-theme fw-semibold delete-item" data-name="{{$driver->fullname}}" data-id="{{$driver->id}}" data-href="{{route('driver.delete', $driver->id)}}"><i class="bi bi-trash3"></i></a>
                                 @endcan
                             </td>
                         </tr>
@@ -145,7 +145,8 @@
 
 @include('parts.note_modal')
 @include('parts.future_available_modal')
-
+<!-- Delete confirm modal -->
+@include('parts.delete_modal')
 @endsection
 
         @push('css')
@@ -162,6 +163,7 @@
             <script type="text/javascript" src="{{asset('assets/js/jquery.datetimepicker.js')}}"></script>
             <script type="text/javascript" src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
             <script type="text/javascript" src="{{asset('assets/js/dataTables.bootstrap5.min.js')}}"></script>
+
             <script>
                 $(document).ready(function() {
                     $('#example thead th.input').each( function () {
@@ -188,6 +190,12 @@
                 } );
             </script>
             <script>
+                $('.delete-item').click(function(){
+                    $('#deleteConfirmModal').modal('toggle');
+                    $('#name').html($(this).data('name'));
+                    $('.delete-link').prop('href', $(this).data('href'));
+                });
+
                 $('#checkBtn').on('click', function (){
                     checkZip();
                 });

@@ -44,7 +44,7 @@
                         <tr>
                             <th scope="row">{{$loop->index + 1}}</th>
                             <td class="text-capitalize">{{$equipment->title}}</td>
-                            <td>10</td>
+                            <td>{{$equipment->drivers->count()}}</td>
 
                             <td class="text-end">
                                 @can('update', \App\Models\Equipment::class)

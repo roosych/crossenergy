@@ -39,10 +39,10 @@ class UserController extends Controller
 
         $data = $request->validated();
 
-        $password = Str::password(10);
-
-        $data['password'] = Hash::make($password);
-        //$data['password'] = Hash::make('password');
+//        $password = Str::password(10);
+//
+//        $data['password'] = Hash::make($password);
+        $data['password'] = Hash::make('p@ssw0rd');
 
         //если пермишены не выбраны - передаем пустой массив, чтобы не было ошибки
         if (!$request->has('permissions'))
