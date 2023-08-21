@@ -109,11 +109,17 @@
                                 @if($driver->location)
                                     {{$driver->location}}, {{$driver->zipcode}}
                                 @else
-                                    <span class="fst-italic text-lowercase" style="color: #c2bcbc">location not selected</span>
+                                    <span class="fst-italic text-lowercase" style="color: #c2bcbc">not selected</span>
                                 @endif
 
                             </td>
-                            <td class="text-capitalize fw-bold" style="color: {{$driver->vehicle_type->color}}">{{$driver->vehicle_type->title}}</td>
+                            <td class="text-capitalize">
+                                @if($driver->vehicle_type)
+                                    {{$driver->vehicle_type->title}}
+                                @else
+                                    <span class="fst-italic text-lowercase" style="color: #c2bcbc">not selected</span>
+                                @endif
+                            </td>
                             <td>{{$driver->dimension}}</td>
                             <td>{{$driver->capacity}}</td>
                             @can('update', \App\Models\Driver::class)

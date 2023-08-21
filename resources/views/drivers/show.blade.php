@@ -144,7 +144,7 @@
                                             <span class="ms-12">Availability</span>
                                         </label>
                                     </div>
-                                    @if($driver->availability == 0)
+                                    @if($driver->availability == 0 and $driver->future_datetime > now())
                                         <span class="badge_{{$driver->id}} badge bg-danger-100 text-danger fs-12px py-5px mb-3">
                                                 {{ \Carbon\Carbon::parse($driver->future_datetime)->format('M d, g:i A')}}, Future location: {{$driver->future_location}}
                                             </span>

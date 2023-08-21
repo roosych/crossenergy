@@ -397,10 +397,6 @@
                     let future_timestamp = new Date(selPts[i].properties.future_datetime).getTime();
                     let future_format = moment(future_timestamp).format('MMM, DD h:hh A');
 
-                    let register_expdate;
-                    let register_expdate_timestamp = new Date(selPts[i].properties.register_expdate).getTime();
-                    let register_expdate_format = moment(register_expdate_timestamp).format('MMMM DD, y');
-
                     if (selPts[i].properties.availability === false && future_timestamp > Date.now()) {
                         future_datetime = '<div class="badge text-danger" style="display: block;white-space: normal">' + future_format + '</div>';
                     } else {
@@ -488,7 +484,7 @@
                         '                                <p class="driver_card__title">Registration exp date:</p>\n' +
                         '                            </div>\n' +
                         '                            <div class="col-8">\n' +
-                        '                                <span class="driver_card__text">' + register_expdate_format + '</span>\n' +
+                        '                                <span class="driver_card__text">' + selPts[i].properties.register_expdate + '</span>\n' +
                         '                            </div>\n' +
                         '                        </div>\n' +
                         '\n' +
