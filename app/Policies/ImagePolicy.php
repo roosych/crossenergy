@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Image;
 use App\Models\User;
 
 class ImagePolicy
@@ -9,12 +10,12 @@ class ImagePolicy
 
     public function upload(User $user)
     {
-        return $user->hasPermissions('upload', User::class);
+        return $user->hasPermissions('upload', Image::class);
     }
 
     public function delete(User $user)
     {
-        return $user->hasPermissions('delete', User::class);
+        return $user->hasPermissions('delete', Image::class);
     }
 
 }

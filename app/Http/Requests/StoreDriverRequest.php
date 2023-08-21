@@ -35,6 +35,11 @@ class StoreDriverRequest extends FormRequest
             'latitude' => 'nullable|between:-90,90',
             'longitude' => 'nullable|between:-180,180',
 
+            'insurance_expdate' => 'nullable|string|max:10',
+            'register_expdate' => 'nullable|string|max:10',
+            'plate_state' => 'nullable|string|max:100',
+            'plate_number' => 'nullable|string|max:100',
+
             'future_zipcode' => 'nullable|integer',
             'future_location' => 'nullable|string|max:150',
             'future_latitude' => 'nullable|between:-90,90',

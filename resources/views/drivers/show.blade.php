@@ -84,6 +84,7 @@
                                         <option value="Resident" {{ $driver->citizenship == 'Resident' ? "selected" : "" }}>Resident</option>
                                         <option value="Citizen" {{ $driver->citizenship == 'Citizen' ? "selected" : "" }}>Citizen</option>
                                         <option value="NL (illegal)" {{ $driver->citizenship == 'NL (illegal)' ? "selected" : "" }}>NL (illegal)</option>
+                                        <option value="WA (Legal)" {{ $driver->citizenship == 'WA (Legal)' ? "selected" : "" }}>WA (Legal)</option>
                                     </select>
                                 </div>
 
@@ -114,6 +115,25 @@
                                     <input type="text" class="form-control" value="{{$driver->dimension}}" name="dimension" id="dimension" required="">
                                 </div>
                             </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-12 col-md-3">
+                                        <label for="plate_state" class="form-label">Plate State</label>
+                                        <input type="text" class="form-control" value="{{ $driver->plate_state }}" name="plate_state" id="plate_state">
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <label for="plate_number" class="form-label">Plate Number</label>
+                                        <input type="text" class="form-control" value="{{ $driver->plate_number }}" name="plate_number" id="plate_number">
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <label for="insurance_expdate" class="form-label">Insurance policy exp date</label>
+                                        <input type="text" class="form-control datepick" value="{{ $driver->insurance_expdate }}" name="insurance_expdate" id="insurance_expdate">
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <label for="register_expdate" class="form-label">Registration exp date</label>
+                                        <input type="text" class="form-control datepick" value="{{ $driver->register_expdate }}" name="register_expdate" id="register_expdate">
+                                    </div>
+                                </div>
 
                             <div class="row mt-4">
                                 <div class="col-12">
@@ -222,9 +242,19 @@
             </div>
         </form>
         @endsection
-
+        @push('css')
+            <link rel="stylesheet" href="{{asset('assets/css/jquery.datetimepicker.css')}}">
+        @endpush
         @push('js')
+            <script type="text/javascript" src="{{asset('assets/js/jquery.datetimepicker.js')}}"></script>
+
             <script>
+                $(".datepick").datetimepicker({
+                    format: 'd-m-Y',
+                    timepicker: false,
+                    defaultDate: new Date(),
+                });
+
                 $('#submitAddDriverForm').on('click', function(e){
                     $('#addDriverForm').submit();
                     e.preventDefault();

@@ -30,12 +30,12 @@ class DriverPolicy
     {
         return $user->hasPermissions('delete', Driver::class);
     }
-
-    /**
-     * Determine whether the user can availability the model.
-     */
-    public function availability(User $user): bool
-    {
-        return $user->hasPermissions('availability', Driver::class);
-    }
+//
+//    /**
+//     * Determine whether the user can availability the model.
+//     */
+//    public function availability(User $user): bool
+//    {
+//        return $user->hasPermissions('availability', Driver::class);
+//    }
 }

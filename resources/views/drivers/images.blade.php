@@ -13,12 +13,10 @@
                 </ul>
                 <h3 class="mb-0">{{$driver->fullname}}</h3>
             </div>
-            <div class="ms-auto">
-                <button id="" type="button" class="btn btn-theme"><i class="fa fa-save me-1"></i> Save</button>
-            </div>
         </div>
 
             <div class="row gx-4">
+                @can('upload', \App\Models\Image::class)
                 <div class="col-xl-3">
                     <div class="card mb-4">
                         <div class="card-header d-flex align-items-center bg-none fw-bold">
@@ -61,6 +59,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
 
                 <div class="col-xl-9">
                     <div class="card mb-4">
@@ -73,11 +72,13 @@
                                     <div class="card rounded-1">
                                         <img src="/storage/{{$image->filename}}" alt="" class="img-fluid">
 
+                                        @can('delete', \App\Models\Image::class)
                                             <div class="text-center my-3">
                                                 <a href="{{route('image.delete', [$driver, $image])}}" onclick="confirm('Are you sure?')" class="btn btn-danger delete_image" data-id="{{$image->id}}">
                                                     <i class="fa fa-trash-alt me-1"></i> Delete
                                                 </a>
                                             </div>
+                                        @endcan
 
                                     </div>
                                 </div>

@@ -69,7 +69,10 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        @can('update', \App\Models\Driver::class)
                         <th></th>
+                        @endcan
+
                     </tr>
 
                     </thead>

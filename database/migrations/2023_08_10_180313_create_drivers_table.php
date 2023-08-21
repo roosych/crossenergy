@@ -38,6 +38,11 @@ return new class extends Migration
 
             $table->string('citizenship')->nullable();
 
+            $table->string('insurance_expdate')->nullable();
+            $table->string('register_expdate')->nullable();
+            $table->string('plate_state')->nullable();
+            $table->string('plate_number')->nullable();
+
             $table->string('zipcode')->nullable();
             $table->string('location')->nullable();
             $table->string('latitude')->nullable();

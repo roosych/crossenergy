@@ -68,6 +68,7 @@ class HomeController extends Controller
                             "future_latitude" => (string)$item['future_latitude'],
                             "future_longitude" => (string)$item['future_longitude'],
                             "future_datetime" => (string)$item['future_datetime'],
+                            "register_expdate" => (string)$item['register_expdate'],
                         ],
                         "geometry" => [
                             "type" => "Point",
