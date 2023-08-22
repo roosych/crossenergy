@@ -31,7 +31,7 @@ class Driver extends Model
     }
 
     protected $fillable = [
-        'number', 'fullname', 'phone', 'owner_id', 'citizenship',
+        'number', 'fullname', 'phone', 'owner_id', 'citizenship', 'email',
         'vehicle_type_id', 'capacity', 'dimension',
         'insurance_expdate', 'register_expdate', 'plate_state', 'plate_number',
         'availability', 'dnu',

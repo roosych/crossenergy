@@ -22,6 +22,7 @@ class DriverFactory extends Factory
             'fullname' => fake()->name('male'),
             'number' => fake()->unique()->randomNumber(2),
             'phone' => fake()->e164PhoneNumber(),
+            'email' => fake()->email(),
             'vehicle_type_id' => VehicleType::all()->random()->id,
             'owner_id' => Owner::all()->random()->id,
             'availability' => fake()->boolean,

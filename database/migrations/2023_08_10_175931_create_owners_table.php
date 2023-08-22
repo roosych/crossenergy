@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
+            $table->string('email')->unique()->nullable();
+            $table->string('company')->nullable();
             $table->unsignedBigInteger('number')->unique();
             $table->boolean('drivers_visibility')->default(true);
             $table->timestamps();

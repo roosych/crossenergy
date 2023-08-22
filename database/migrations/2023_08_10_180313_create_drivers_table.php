@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('fullname');
             $table->unsignedBigInteger('number')->nullable();
             $table->string('phone');
+            $table->string('email')->unique()->nullable();
 
             $table->foreignIdFor(VehicleType::class)
                 ->nullable()

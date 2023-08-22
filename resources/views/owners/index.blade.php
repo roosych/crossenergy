@@ -33,10 +33,11 @@
                 <table class="table table-hover mb-0">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Number</th>
                         <th scope="col">Name</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Company</th>
                         <th scope="col">Drivers</th>
 {{--                        @can('update', \App\Models\Owner::class)--}}
 {{--                        <th scope="col">Drivers visibility</th>--}}
@@ -47,10 +48,11 @@
                     <tbody style="vertical-align: middle">
                     @forelse($owners as $owner)
                         <tr>
-                            <th scope="row">{{$loop->index + 1}}</th>
                             <td class="fw-bold">{{$owner->number}}</td>
-                            <td class="text-capitalize">{{$owner->name}}</td>
+                            <td class="text-capitalize"><a href="{{route('owner.show', $owner->id)}}">{{$owner->name}}</a></td>
                             <td>{{$owner->phone}}</td>
+                            <td>{{$owner->email}}</td>
+                            <td>{{$owner->company}}</td>
                             <td>{{$owner->drivers->count()}}</td>
 
                             <td class="text-end">
@@ -75,7 +77,7 @@
 
         <!-- Add Modal -->
         <div class="modal fade" id="addOwnerModal" tabindex="-1" aria-labelledby="addOwnerModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="addOwnerModalLabel">Add owner</h1>
@@ -84,18 +86,44 @@
                     <div class="modal-body">
                         <form id="addOwnerForm">
                             @csrf
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="number">Number</label>
+                                        <input type="text" class="form-control" id="number" name="number">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="name">Name</label>
+                                        <input type="text" class="form-control" id="name" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="phone">Phone</label>
+                                        <input type="text" class="form-control" id="phone" name="phone">
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone">
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="company">Company</label>
+                                        <input type="text" class="form-control" id="company" name="company">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="number">Number</label>
-                                <input type="text" class="form-control" id="number" name="number">
-                            </div>
+
+
                         </form>
 
                         <div id="addOwnerFormErrors"></div>

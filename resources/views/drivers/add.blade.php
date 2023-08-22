@@ -56,15 +56,10 @@
                                     </div>
 
                                     <div class="col-12 col-md-3">
-                                        <label for="owner_id" class="form-label">
-                                            Owner
+                                        <label for="email" class="form-label">
+                                            Email
                                         </label>
-                                        <select name="owner_id" id="owner_id" class="form-select">
-                                            <option value="">Without owner</option>
-                                            @foreach($owners as $owner)
-                                                <option value="{{$owner->id}}">{{$owner->name}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="email" class="form-control" value="{{ old('email') }}" name="email" id="email" required="">
                                     </div>
 
                                     <div class="col-12 col-md-2">
@@ -79,11 +74,23 @@
                                             <option value="WA (Legal)" {{ old('citizenship') == 'WA (Legal)' ? "selected" : "" }}>WA (Legal)</option>
                                         </select>
                                     </div>
-
                                 </div>
 
                                 <div class="row mt-4">
-                                    <div class="col-12 col-md-4">
+
+                                    <div class="col-12 col-md-3">
+                                        <label for="owner_id" class="form-label">
+                                            Owner
+                                        </label>
+                                        <select name="owner_id" id="owner_id" class="form-select">
+                                            <option value="">Without owner</option>
+                                            @foreach($owners as $owner)
+                                                <option value="{{$owner->id}}">{{$owner->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 col-md-3">
                                         <label for="vehicle_type_id" class="form-label"><span class="text-danger me-1">*</span>Vehicle Type</label>
                                         <select name="vehicle_type_id" id="vehicle_type_id" class="form-select">
                                             <option value="">Choose</option>
@@ -93,14 +100,14 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-12 col-md-4">
+                                    <div class="col-12 col-md-3">
                                         <label for="capacity" class="form-label">
                                             Capacity
                                         </label>
                                         <input type="text" class="form-control" value="{{ old('capacity') }}" name="capacity" id="capacity" required="">
                                     </div>
 
-                                    <div class="col-12 col-md-4">
+                                    <div class="col-12 col-md-3">
                                         <label for="dimension" class="form-label">
                                             Dimension
                                         </label>

@@ -22,7 +22,7 @@
         <form id="editOwnerForm" action="{{route('owner.update', $owner)}}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="row gx-4">
-                <div class="col-xl-6">
+                <div class="col-xl-9">
                     <div class="card mb-4">
                         <div class="card-header d-flex align-items-center bg-none fw-bold">
                             Information
@@ -45,26 +45,41 @@
 
                             <div class="row mb-2">
 
-                                <div class="col-lg-5">
+                                <div class="col-lg-1">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="number">Number</label>
+                                        <input type="text" class="form-control" id="number" name="number" value="{{$owner->number}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="fullname">Fullname</label>
                                         <input type="text" class="form-control" id="fullname" name="name" value="{{$owner->name}}" required>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-5">
+                                <div class="col-lg-2">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="phone">Phone</label>
                                         <input type="text" class="form-control" id="phone" name="phone" value="{{$owner->phone}}" required>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2">
+                                <div class="col-lg-3">
                                     <div class="form-group mb-3">
-                                        <label class="form-label" for="number">Number</label>
-                                        <input type="text" class="form-control" id="number" name="number" value="{{$owner->number}}" required>
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email" value="{{$owner->email}}" required>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-3">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="company">Company</label>
+                                        <input type="text" class="form-control" id="company" name="company" value="{{$owner->company}}" required>
+                                    </div>
+                                </div>
+
 
                             </div>
 
@@ -72,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-6">
+                <div class="col-xl-3">
                     <div class="card mb-4">
                         <div class="card-header d-flex align-items-center bg-none fw-bold">
                             Drivers

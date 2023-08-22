@@ -11,7 +11,7 @@ class Owner extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'phone', 'number',
+        'name', 'phone', 'number', 'email', 'company',
     ];
 
     public function drivers() :hasMany
