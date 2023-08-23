@@ -35,7 +35,7 @@
                             @endif
 
                             <div class="alert alert-info py-2">
-                                Password will be generated automatically and sent to the entered email.
+                                Default password <strong>"p@ssw0rd"</strong>. It is recommended to change after login
                             </div>
                                 <div class="row mb-2">
 
