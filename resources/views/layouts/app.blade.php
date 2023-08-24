@@ -29,6 +29,11 @@
             </a>
         </div>
 
+        <div style="height: 100%; width: auto;padding: 0;display: flex;align-items: center;">
+            <p class="clock brand-logo mb-0 text-theme fs-16px" data-locale="New York" data-offset="-4">
+                New York (<span class="fw-bold"></span>)
+            </p>
+        </div>
 
     @include('parts.menu')
 
@@ -48,7 +53,32 @@
     <a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
 
 </div>
+<script>
+    // search all desired clocks
+    function searchClocks() {
+        document.querySelectorAll('.clock').forEach(item => {
+            const timezone = {
+                locale: item.getAttribute('data-locale'),
+                offset: item.getAttribute('data-offset')
+            };
 
+            setInterval(() => {
+                item.querySelector('span').innerHTML = calcTime(timezone);
+            }, 1000);
+        })
+    }
+
+    // get local time (browser based)
+    function calcTime(timezone) {
+        const d = new Date(),
+            utc = d.getTime() + (d.getTimezoneOffset() * 60000),
+            nd = new Date(utc + (3600000 * timezone.offset));
+
+        return nd.toLocaleString();
+    }
+
+    searchClocks();
+</script>
 <script src="{{asset('assets/js/vendor.min.js')}}"></script>
 <script src="{{asset('assets/js/app.min.js')}}"></script>
 
