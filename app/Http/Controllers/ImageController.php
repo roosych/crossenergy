@@ -68,7 +68,7 @@ class ImageController extends Controller
             unlink($absolutePath);
             $file->delete();
 
-            return redirect()->back()->with('success', 'Successfully added!');
+            return redirect()->back()->with('success', 'Successfully deleted!');
         }
 
         return redirect()->back()->with('danger', 'Something went wrong!');

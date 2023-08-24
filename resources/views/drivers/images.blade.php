@@ -8,8 +8,9 @@
             <div>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('users.index')}}">Users</a></li>
-                    <li class="breadcrumb-item active">{{$driver->fullname}}</li>
+                    <li class="breadcrumb-item"><a href="{{route('drivers.index')}}">Drivers</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('driver.show', $driver->id)}}">{{$driver->fullname}}</a></li>
+                    <li class="breadcrumb-item active">{{$driver->fullname}}`s car photos</li>
                 </ul>
                 <h3 class="mb-0">{{$driver->fullname}}</h3>
             </div>
@@ -67,24 +68,26 @@
                             {{$driver->fullname}}`s car photos
                         </div>
                         <div class="card-body">
-                            @forelse($driver->images as $image)
-                                <div class="col-lg-3">
-                                    <div class="card rounded-1">
-                                        <img src="/storage/{{$image->filename}}" alt="" class="img-fluid">
+                            <div class="row">
+                                @forelse($driver->images as $image)
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-1">
+                                            <img src="/storage/{{$image->filename}}" alt="" class="img-fluid">
 
-                                        @can('delete', \App\Models\Image::class)
-                                            <div class="text-center my-3">
-                                                <a href="{{route('image.delete', [$driver, $image])}}" onclick="confirm('Are you sure?')" class="btn btn-danger delete_image" data-id="{{$image->id}}">
-                                                    <i class="fa fa-trash-alt me-1"></i> Delete
-                                                </a>
-                                            </div>
-                                        @endcan
+                                            @can('delete', \App\Models\Image::class)
+                                                <div class="text-center my-3">
+                                                    <a href="{{route('image.delete', [$driver, $image])}}" onclick="confirm('Are you sure?')" class="btn btn-danger delete_image" data-id="{{$image->id}}">
+                                                        <i class="fa fa-trash-alt me-1"></i> Delete
+                                                    </a>
+                                                </div>
+                                            @endcan
 
+                                        </div>
                                     </div>
-                                </div>
-                            @empty
-                            <p>No photos</p>
-                            @endforelse
+                                @empty
+                                    <p>No photos</p>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
                 </div>

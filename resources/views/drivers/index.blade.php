@@ -107,7 +107,7 @@
                             </td>
                             <td class="text-capitalize">
                                 @if($driver->location)
-                                    {{$driver->location}}, {{$driver->zipcode}}
+                                    {{$driver->location}}<br>{{$driver->zipcode}}
                                 @else
                                     <span class="fst-italic text-lowercase" style="color: #c2bcbc">not selected</span>
                                 @endif
@@ -123,7 +123,7 @@
                             <td>{{$driver->dimension}}</td>
                             <td>{{$driver->capacity}}</td>
                             @can('update', \App\Models\Driver::class)
-                            <td style="width: 150px" class="note_{{$driver->id}}">
+                            <td style="width: 200px" class="note_{{$driver->id}}">
                                 <a id="driver_{{$driver->id}}" href="javascript:void(0);" class="text-decoration-none note_edit" data-title="{{$driver->fullname}}" data-id="{{$driver->id}}" data-value="{{$driver->note}}">
                                     @if(!$driver->note)
                                         <span class="fst-italic" style="border-bottom: 1px dashed #c2bcbc;color: #c2bcbc">write a note</span>

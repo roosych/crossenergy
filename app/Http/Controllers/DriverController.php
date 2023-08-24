@@ -192,7 +192,7 @@ class DriverController extends Controller
             'future_latitude' => (string)$request->future_latitude,
             'future_longitude' => (string)$request->future_longitude,
             'future_datetime' => (string)$request->future_datetime,
-            'note' => (string)$request->note,
+            //'note' => (string)$request->note,
 
             //устанавливаем фьчерс координаты на каррент
             'location' => (string)$request->future_location,
