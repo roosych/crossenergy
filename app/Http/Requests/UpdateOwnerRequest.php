@@ -26,7 +26,7 @@ class UpdateOwnerRequest extends FormRequest
             'phone' => 'required|string|max:100',
             'email' => 'nullable|string|email|unique:owners,email,' .$this->owner->id,
             'company' => 'nullable|string|max:255',
-            'number' => 'nullable|string|unique:owners,number,' .$this->owner->id,
+            'number' => 'required|integer|unique:owners,number,' .$this->owner->id,
             'drivers_visibility' => 'boolean',
         ];
     }

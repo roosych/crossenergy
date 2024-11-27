@@ -36,10 +36,10 @@
 
                                 <div class="row">
 
-                                    <div class="col-12 col-md-1">
+                                    {{--<div class="col-12 col-md-1">
                                         <label for="nmb" class="form-label">Number</label>
                                         <input type="text" class="form-control" value="{{ old('number') }}" name="number" id="number">
-                                    </div>
+                                    </div>--}}
 
                                     <div class="col-12 col-md-3">
                                         <label for="fullname" class="form-label">
@@ -62,11 +62,11 @@
                                         <input type="email" class="form-control" value="{{ old('email') }}" name="email" id="email" required="">
                                     </div>
 
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-3">
                                         <label for="citizenship" class="form-label">
-                                            Citizenship
+                                            <span class="text-danger me-1">*</span>Citizenship
                                         </label>
-                                        <select name="citizenship" id="citizenship" class="form-select">
+                                        <select name="citizenship" id="citizenship" class="form-select" required>
                                             <option value="">Not chosen</option>
                                             <option value="Resident" {{ old('citizenship') == 'Resident' ? "selected" : "" }}>Resident</option>
                                             <option value="Citizen" {{ old('citizenship') == 'Citizen' ? "selected" : "" }}>Citizen</option>
@@ -80,9 +80,9 @@
 
                                     <div class="col-12 col-md-3">
                                         <label for="owner_id" class="form-label">
-                                            Owner
+                                            <span class="text-danger me-1">*</span>Owner
                                         </label>
-                                        <select name="owner_id" id="owner_id" class="form-select">
+                                        <select name="owner_id" id="owner_id" class="form-select" required>
                                             <option value="">Without owner</option>
                                             @foreach($owners as $owner)
                                                 <option value="{{$owner->id}}">{{$owner->name}}</option>

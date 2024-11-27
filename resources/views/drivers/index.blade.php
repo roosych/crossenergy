@@ -94,7 +94,7 @@
                                 @endif
                             </td>
                             <td class="fw-bold" style="width: 50px">
-                                {{$driver->number}}
+                                {{$driver->owner?->number}} - {{$driver->number}}
                                 @if($driver->dnu)
                                     <span class="badge_{{$driver->id}} badge bg-warning-100 text-danger py-5px">
                                         DNU
@@ -102,9 +102,9 @@
                                 @endif
                             </td>
                             <td class="text-capitalize">
-                                {{$driver->fullname}}
+                                {{$driver->fullname}}  <b>{{$driver->number}}</b>
                                 @if($driver->owner)
-                                    <br><b>Owner:</b> {{$driver->owner->id}} - <a href="{{route('owner.show', $driver->owner->id)}}" target="_blank">{{$driver->owner->name}}</a>
+                                    <br><b>Owner:</b> <a href="{{route('owner.show', $driver->owner->id)}}" target="_blank">{{$driver->owner->name}}</a>
                                 @endif
                             </td>
                             <td class="text-capitalize">

@@ -23,11 +23,11 @@ class StoreDriverRequest extends FormRequest
     {
         return [
             'fullname' => 'required|string|min:2|max:100',
-            'number' => 'nullable|string|min:1|max:10',
+            //'number' => 'nullable|string|min:1|max:10',
             'phone' => 'required|string|min:10|max:20|unique:drivers,phone',
             'email' => 'nullable|string|email|unique:drivers,email',
             'vehicle_type_id' => 'required|integer|exists:vehicle_types,id',
-            'owner_id' => 'nullable|integer|exists:owners,id',
+            'owner_id' => 'required|integer|exists:owners,id',
             'capacity' => 'nullable|string|min:2|max:100',
             'citizenship' => 'required|string|min:2|max:100',
             'dimension' => 'nullable|string|min:2|max:100',

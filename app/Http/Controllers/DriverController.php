@@ -18,8 +18,11 @@ class DriverController extends Controller
     public function index()
     {
         $drivers = Driver::query()
-            ->with(['vehicle_type', 'owner'])
-            ->orderBy('created_at', 'desc')
+            ->leftJoin('owners', 'drivers.owner_id', '=', 'owners.id') // Соединение с таблицей owners
+            ->select('drivers.*') // Выбираем только колонки из таблицы drivers
+            ->orderBy('owners.number') // Сортируем по номеру владельца
+            ->orderByDesc('drivers.number') // Сортируем по номеру водителя
+            ->with('owner') // Предзагрузка владельцев для использования в шаблоне
             ->get();
 
         foreach ($drivers as $driver)
@@ -76,6 +79,10 @@ class DriverController extends Controller
         $this->authorize('create', Driver::class);
 
         $data = $request->validated();
+        $owner = Owner::query()->where('id', $data['owner_id'])->firstOrFail();
+        $ownerDriversCount = count($owner->drivers);
+
+        $data['number'] = $ownerDriversCount + 1;
 
         if (!$request->has('equipment'))
         {

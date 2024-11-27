@@ -26,7 +26,7 @@ class StoreOwnerRequest extends FormRequest
             'phone' => 'required|string|max:100',
             'email' => 'nullable|string|email|unique:owners,email',
             'company' => 'nullable|string|max:255',
-            'number' => 'nullable|string|unique:owners,number',
+            'number' => 'required|integer|unique:owners,number',
         ];
     }
 }
