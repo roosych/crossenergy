@@ -94,7 +94,7 @@
                                 @endif
                             </td>
                             <td class="fw-bold" style="width: 50px">
-                                {{$driver->number}}
+                                {{$driver->id}}
                                 @if($driver->dnu)
                                     <span class="badge_{{$driver->id}} badge bg-warning-100 text-danger py-5px">
                                         DNU
