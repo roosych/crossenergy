@@ -45,12 +45,12 @@
 
                             <div class="row mb-2">
 
-{{--                                <div class="col-lg-1">--}}
-{{--                                    <div class="form-group mb-3">--}}
-{{--                                        <label class="form-label" for="number">Number</label>--}}
-{{--                                        <input type="text" class="form-control" id="number" name="number" value="{{$owner->number}}" required>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="col-lg-1">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="number">Number</label>
+                                        <input type="text" class="form-control" id="number" name="number" value="{{$owner->number}}" required>
+                                    </div>
+                                </div>
 
                                 <div class="col-lg-3">
                                     <div class="form-group mb-3">
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="phone">Phone</label>
                                         <input type="text" class="form-control" id="phone" name="phone" value="{{$owner->phone}}" required>
@@ -104,6 +104,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-6 pt-1 pb-1">
                                                 <a href="{{route('driver.show', $driver)}}" target="_blank">
+                                                    {{$driver->number ? $driver->number . ' -' : ''}}
                                                     {{$driver->fullname}}
                                                 </a>
                                             </div>

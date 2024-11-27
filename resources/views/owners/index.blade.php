@@ -48,7 +48,7 @@
                     <tbody style="vertical-align: middle">
                     @forelse($owners as $owner)
                         <tr>
-                            <td class="fw-bold">{{$owner->id}}</td>
+                            <td class="fw-bold">{{$owner->number}}</td>
                             <td class="text-capitalize"><a href="{{route('owner.show', $owner->id)}}">{{$owner->name}}</a></td>
                             <td>{{$owner->phone}}</td>
                             <td>{{$owner->email}}</td>
@@ -87,19 +87,19 @@
                         <form id="addOwnerForm">
                             @csrf
                             <div class="row">
-{{--                                <div class="col-lg-2">--}}
-{{--                                    <div class="form-group mb-3">--}}
-{{--                                        <label class="form-label" for="number">Number</label>--}}
-{{--                                        <input type="text" class="form-control" id="number" name="number">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-                                <div class="col-lg-6">
+                                <div class="col-lg-2">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="number">Number</label>
+                                        <input type="text" class="form-control" id="number" name="number">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="name">Name</label>
                                         <input type="text" class="form-control" id="name" name="name">
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-5">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="phone">Phone</label>
                                         <input type="text" class="form-control" id="phone" name="phone">

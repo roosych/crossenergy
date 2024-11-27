@@ -44,10 +44,10 @@
 
                             <div class="row">
 
-                                {{--<div class="col-12 col-md-1">
+                                <div class="col-12 col-md-1">
                                     <label for="nmb" class="form-label">Number</label>
                                     <input type="text" class="form-control" value="{{$driver->number}}" name="number" id="number">
-                                </div>--}}
+                                </div>
 
                                 <div class="col-12 col-md-3">
                                     <label for="fullname" class="form-label">
@@ -70,7 +70,7 @@
                                     <input type="text" class="form-control" value="{{$driver->email}}" name="email" id="email" required="">
                                 </div>
 
-                                <div class="col-12 col-md-3">
+                                <div class="col-12 col-md-2">
                                     <label for="citizenship" class="form-label">
                                         Citizenship
                                     </label>
