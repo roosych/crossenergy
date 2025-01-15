@@ -432,6 +432,8 @@
                             '</div>\n'
                     }
 
+                    //console.log(selPts[i].properties.owner_name)
+
                     driverList.innerHTML += '<div class="card rounded border p-2 mb-3 driver_card"'+NABgColor+'>\n' +
                         '<div class="row">\n' +
                         '    <div class="col-12">\n' +
@@ -445,6 +447,12 @@
                         '                <div class="row justify-content-between">\n' +
                         '                    <div class="col-lg-9">\n' +
                         '                        <div class="row">\n' +
+                        '                            <div class="col-4">\n' +
+                        '                                <p class="driver_card__title">Owner:</p>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="col-8">\n' +
+                        '                                <span class="driver_card__text">' + selPts[i].properties.owner_name + ' ' + selPts[i].properties.owner_number + '</span>\n' +
+                        '                            </div>\n' +
                         '                            <div class="col-4">\n' +
                         '                                <p class="driver_card__title">Location:</p>\n' +
                         '                            </div>\n' +

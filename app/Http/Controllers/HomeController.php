@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function getAllDrivers()
     {
-        $data = Driver::with(['vehicle_type', 'equipment'])
+        $data = Driver::with(['vehicle_type', 'equipment', 'owner'])
             //->where('status', true)
             ->get()
             ->toArray();
@@ -36,6 +36,10 @@ class HomeController extends Controller
             {
                 array_push($equipments, $equ['title']);
             }
+
+            // Получаем данные об овнере
+            $ownerName = $item['owner']['name'] ?? 'N/A';
+            $ownerNumber = $item['owner']['number'] ?? 'N/A';
 
             //dd($equipments);
 
@@ -62,6 +66,10 @@ class HomeController extends Controller
                             "vehicle_type_color" => (string)$item['vehicle_type']['color'],
                             "note" => (string)$item['note'],
                             "equipments" => (array)$equipments,
+
+                            // Новые данные об овнере
+                            "owner_name" => (string)$ownerName,
+                            "owner_number" => (string)$ownerNumber,
 
                             "future_location" => (string)$item['future_location'],
                             "future_zipcode" => (string)$item['future_zipcode'],
